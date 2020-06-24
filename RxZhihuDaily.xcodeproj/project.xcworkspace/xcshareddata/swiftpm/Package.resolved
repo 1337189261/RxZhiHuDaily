@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "HYSwift",
+        "repositoryURL": "git@github.com:1337189261/HYSwift.git",
+        "state": {
+          "branch": "master",
+          "revision": "8303e2838230caae8d993d8684c74a0838533d03",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

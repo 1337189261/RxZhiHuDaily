@@ -1,0 +1,129 @@
+{
+  "date": "20200623",
+  "stories": [
+    {
+      "image_hue": "0x704f51",
+      "title": "如何通过考古判断猪被驯化的时间？",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725138",
+      "hint": "知乎用户 · 3 分钟阅读",
+      "ga_prefix": "062307",
+      "images": [
+        "https:\/\/pic4.zhimg.com\/v2-508d9cf94cbedc65acf7beb1b98b7abb.jpg"
+      ],
+      "type": 0,
+      "id": 9725138
+    },
+    {
+      "image_hue": "0x7d8bb3",
+      "title": "为什么水龙头的水流落到洗手池的时候会形成一圈空白？",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725134",
+      "hint": "姜小白71 · 5 分钟阅读",
+      "ga_prefix": "062307",
+      "images": [
+        "https:\/\/pic1.zhimg.com\/v2-66d001a19dc8e12b441537da1b751050.jpg"
+      ],
+      "type": 0,
+      "id": 9725134
+    },
+    {
+      "image_hue": "0x262f3b",
+      "title": "工藤新一的房子在现实中会有多贵？",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725136",
+      "hint": "afishdead · 7 分钟阅读",
+      "ga_prefix": "062307",
+      "images": [
+        "https:\/\/pic1.zhimg.com\/v2-dbcda1646c6ab6240f6b97a935224070.jpg"
+      ],
+      "type": 0,
+      "id": 9725136
+    },
+    {
+      "image_hue": "0x588ca3",
+      "title": "眼睛太小是什么体验？虎鲸：谢邀",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725142",
+      "hint": "博物杂志 · 3 分钟阅读",
+      "ga_prefix": "062307",
+      "images": [
+        "https:\/\/pic1.zhimg.com\/v2-f7d7b2a5429d280ce24133c6438846cc.jpg"
+      ],
+      "type": 0,
+      "id": 9725142
+    },
+    {
+      "image_hue": "0xb3987d",
+      "title": "我国是否有必要建成类似日本电车的城际铁路? ",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725147",
+      "hint": "王兴邦 · 2 分钟阅读",
+      "ga_prefix": "062307",
+      "images": [
+        "https:\/\/pic1.zhimg.com\/v2-4b7e1cf6d86977f6b1b07a57957dec48.jpg"
+      ],
+      "type": 0,
+      "id": 9725147
+    },
+    {
+      "image_hue": "0x142a2b",
+      "title": "瞎扯 · 如何正确地吐槽",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725133",
+      "hint": "VOL.2425",
+      "ga_prefix": "062306",
+      "images": [
+        "https:\/\/pic2.zhimg.com\/v2-422480d9b48db91f99f8fca229e64045.jpg"
+      ],
+      "type": 0,
+      "id": 9725133
+    }
+  ],
+  "top_stories": [
+    {
+      "image_hue": "0xb3a478",
+      "hint": "作者 \/ stone-zeng",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725125",
+      "image": "https:\/\/pic3.zhimg.com\/v2-eaf04f9a262b5fbe7609bf97c5ac6d86.jpg",
+      "title": "把所有汉字叠写起来最后会留下空白吗？",
+      "ga_prefix": "062207",
+      "type": 0,
+      "id": 9725125
+    },
+    {
+      "image_hue": "0xb3343e",
+      "hint": "作者 \/ 凉透了",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725075",
+      "image": "https:\/\/pic2.zhimg.com\/v2-97b105859ba6f9adba09f3085c678d21.jpg",
+      "title": "水果店老板视角的贵价高端水果大全",
+      "ga_prefix": "062107",
+      "type": 0,
+      "id": 9725075
+    },
+    {
+      "image_hue": "0xb39f7d",
+      "hint": "作者 \/ 三个料理人",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725102",
+      "image": "https:\/\/pic4.zhimg.com\/v2-2d9107965bf91f1dc0ad9c93a25a08c3.jpg",
+      "title": "中国人实诚野餐指南",
+      "ga_prefix": "062007",
+      "type": 0,
+      "id": 9725102
+    },
+    {
+      "image_hue": "0xb39176",
+      "hint": "作者 \/ Moriarty K",
+      "url": "https:\/\/daily.zhihu.com\/story\/9725010",
+      "image": "https:\/\/pic3.zhimg.com\/v2-8acb9642452544485394ed7c763da272.jpg",
+      "title": "现实生活中警察怎么处理那些已经长虫的尸体？",
+      "ga_prefix": "061807",
+      "type": 0,
+      "id": 9725010
+    },
+    {
+      "image_hue": "0x25170d",
+      "hint": "作者 \/ 兰陵",
+      "url": "https:\/\/daily.zhihu.com\/story\/9724961",
+      "image": "https:\/\/pic2.zhimg.com\/v2-be715df4445dcd4cb29b722d3e9d5df9.jpg",
+      "title": "目前中国有哪些亚文化？",
+      "ga_prefix": "061707",
+      "type": 0,
+      "id": 9724961
+    }
+  ]
+}
