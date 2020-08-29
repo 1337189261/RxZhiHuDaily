@@ -12,26 +12,41 @@ import RxCocoa
 import SnapKit
 import HYSwift
 import SDWebImage
+import RxDataSources
 
 final class HomeViewController: UIViewController, Routable {
     
+    let scrollView = UIScrollView()
+    let topStoriesImageView = UIImageView()
     let viewmodel = HomeViewModel()
-    let tableView = UITableView.create()
+    let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Router.shared.register(aClass: StoryDetailViewController.self, for: "detail")
+        
         view.addSubview(tableView)
         tableView.register(StoryTableViewCell.self)
-        tableView.rowHeight =  104
+        tableView.rowHeight(104)
         tableView.separatorStyle = .none
         tableView.snp.makeConstraints { (maker) in
             maker.edges.equalToSuperview()
         }
-        
         bind()
-        
         viewmodel.fetchLatest()
+    }
+    
+    func bind() {
+        let dataSource = RxTableViewSectionedReloadDataSource<StorySection>(configureCell:  { (dataSource, tableView, indexPath, story) in
+            let cell: StoryTableViewCell = tableView.dequeReusableCell()
+            cell.titleLabel.text = story.title
+            cell.subTitleLabel.text = story.hint
+            cell.imgView.sd_setImage(with: URL(string: story.images?[0] ?? ""))
+            return cell
+        })
+        
+        viewmodel.sections
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: bag)
         
         tableView.rx.modelSelected(Story.self)
         .map{ $0.id }
@@ -41,19 +56,24 @@ final class HomeViewController: UIViewController, Routable {
             }
             Router.shared.open(url: URL(string: "detail://"), params:["StoryID": id])
         }).disposed(by: bag)
-
-    }
-    
-    func bind() {
-        viewmodel.stories.bind(to: tableView.rx.items(cellIdentifier: String(describing: StoryTableViewCell.self))) { row, story, cell in
-            let cell = cell as! StoryTableViewCell
-            cell.titleLabel.text = story.title
-            cell.subTitleLabel.text = story.hint
-            cell.imgView.sd_setImage(with: URL(string: story.images?[0] ?? ""))
-        }.disposed(by: bag)
+        
+        tableView.rx.setDelegate(self).disposed(by: bag)
+        
     }
     
     convenience init(params: [String : Any]) {
         self.init(nibName: nil, bundle: nil)
+    }
+    
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 0.1))
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+        
     }
 }

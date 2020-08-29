@@ -25,6 +25,7 @@
 		53D1135F24A1C94E00B5D7B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D1135D24A1C94E00B5D7B6 /* LaunchScreen.storyboard */; };
 		53D1136824A1CB8F00B5D7B6 /* HYSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 53D1136724A1CB8F00B5D7B6 /* HYSwift */; };
 		53D1136924A1CB8F00B5D7B6 /* HYSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 53D1136724A1CB8F00B5D7B6 /* HYSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		53F8530924ADE9970063DF63 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F8530824ADE9970063DF63 /* DateUtil.swift */; };
 		7F08209EE63D52E8AC2559CB /* Pods_RxZhihuDaily.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F20360A507CFE31E348FEAA /* Pods_RxZhihuDaily.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		53D1135B24A1C94E00B5D7B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D1135E24A1C94E00B5D7B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53D1136024A1C94E00B5D7B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53F8530824ADE9970063DF63 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		5F20360A507CFE31E348FEAA /* Pods_RxZhihuDaily.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxZhihuDaily.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C34128A25B92108C1B760A9 /* Pods-RxZhihuDaily.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxZhihuDaily.debug.xcconfig"; path = "Target Support Files/Pods-RxZhihuDaily/Pods-RxZhihuDaily.debug.xcconfig"; sourceTree = "<group>"; };
 		C1AB14DDEFE76871101AB782 /* Pods-RxZhihuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxZhihuDaily.release.xcconfig"; path = "Target Support Files/Pods-RxZhihuDaily/Pods-RxZhihuDaily.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +110,9 @@
 		53CC604C24A24BF900C1CC58 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				53CC604924A21FAA00C1CC58 /* Router */,
 				53CC604D24A24C0700C1CC58 /* HasDisposeBag.swift */,
+				53F8530824ADE9970063DF63 /* DateUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -188,7 +192,6 @@
 				53CC605524A2685C00C1CC58 /* ViewModel */,
 				53CC605424A2684400C1CC58 /* Controller */,
 				53CC604C24A24BF900C1CC58 /* Utils */,
-				53CC604924A21FAA00C1CC58 /* Router */,
 				53CC604024A1EC3B00C1CC58 /* Model */,
 				53D1136D24A1CEA100B5D7B6 /* Network */,
 			);
@@ -345,6 +348,7 @@
 				53CC603D24A1D91100C1CC58 /* HomeViewModel.swift in Sources */,
 				53CC603F24A1D9BF00C1CC58 /* StoryTableViewCell.swift in Sources */,
 				53CC604824A21C5D00C1CC58 /* StoryDetail.swift in Sources */,
+				53F8530924ADE9970063DF63 /* DateUtil.swift in Sources */,
 				53CC604624A2080900C1CC58 /* StoryDetailViewModel.swift in Sources */,
 				53CC604224A1EC4700C1CC58 /* Story.swift in Sources */,
 			);
@@ -422,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -476,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +505,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chy.RxZhihuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -520,7 +524,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chy.RxZhihuDaily;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

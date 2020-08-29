@@ -8,18 +8,18 @@
 
 import Foundation
 import RxSwift
-
+fileprivate var HasDisposeBagKey = "HasDisposeBagKey"
 protocol HasDisposeBag: NSObject {
     
 }
 extension HasDisposeBag {
     var bag: DisposeBag {
         get {
-            if let bag = objc_getAssociatedObject(self, "DisposeBagKey") as? DisposeBag {
+            if let bag = objc_getAssociatedObject(self, &HasDisposeBagKey) as? DisposeBag {
                 return bag
             }
             let bag = DisposeBag()
-            objc_setAssociatedObject(self, "DisposeBagKey", bag, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &HasDisposeBagKey, bag, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             return bag
         }
     }

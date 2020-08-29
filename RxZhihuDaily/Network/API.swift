@@ -14,6 +14,7 @@ import HYSwift
 enum API {
     case lastest
     case detail(no: String)
+    case before(dateString: String)
     
     static let provider = MoyaProvider<API>(stubClosure: MoyaProvider<API>.immediatelyStub)
 }
@@ -22,9 +23,11 @@ extension API: TargetType {
     var sampleData: Data {
         switch self {
         case .lastest:
-            return readJSON(fileName: "Latest")
-        case .detail(let _):
-            return readJSON(fileName: "StoryDetail")
+            return readJSON(fileName: "Latest") ?? Data()
+        case .detail:
+            return readJSON(fileName: "StoryDetail") ?? Data()
+        case .before(dateString: let str):
+            return Data()
         }
     }
     
@@ -38,6 +41,8 @@ extension API: TargetType {
             return "/latest"
         case .detail(let no):
             return "/\(no)"
+        case .before(dateString: let str):
+            return "/before/\(str)"
         }
     }
     
@@ -50,6 +55,6 @@ extension API: TargetType {
     }
     
     var baseURL: URL {
-        URL(string: "https://news-at.zhihu.com/api/3/stories")!
+        URL(string: "https://news-at.zhihu.com/api/3/news")!
     }
 }

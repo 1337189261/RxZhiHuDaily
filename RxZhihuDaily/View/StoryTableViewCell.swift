@@ -20,6 +20,7 @@ class StoryTableViewCell: UITableViewCell {
         selectionStyle = .none
         addSubview(titleLabel)
         titleLabel.numberOfLines = 2
+        titleLabel.textColor = .label
         titleLabel.snp.makeConstraints { (maker) in
             maker.top.equalToSuperview().offset(20)
             maker.leading.equalToSuperview().offset(16)
@@ -27,6 +28,7 @@ class StoryTableViewCell: UITableViewCell {
         }
         
         addSubview(subTitleLabel)
+        subTitleLabel.textColor = .secondaryLabel
         subTitleLabel.snp.makeConstraints { (maker) in
             maker.top.equalTo(titleLabel.snp.bottom).offset(4)
             maker.leading.equalTo(titleLabel)

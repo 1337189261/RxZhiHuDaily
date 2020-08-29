@@ -13,21 +13,51 @@ import HYSwift
 import Moya
 import SwiftyJSON
 
-class HomeViewModel:NSObject {
+class HomeViewModel: NSObject {
     
-    let stories = BehaviorRelay<[Story]>(value: [])
+    let sections = BehaviorRelay(value: [StorySection]())
+    let isLoading = BehaviorRelay(value: false)
+    let dateToLoad = BehaviorRelay(value: Date())
+    let headerPicWidth = BehaviorRelay(value: 100)
+    
     
     func fetchLatest() {
-        API.provider.request(.lastest).mapJSON()
-            .map({ (json) -> JSON in
-                JSON(json)
-            })
+        API.provider.request(.lastest).mapJson()
             .subscribe(onNext: { json in
                 if let stories = [Story].deserialize(from: json["stories"].arrayObject) {
-                    self.stories.accept(stories.compactMap {$0})
+                    let lastestStorySection = StorySection(dateString: Date().headerString, stories: stories.compactMap {$0})
+                    self.sections.accept([lastestStorySection])
                 }
             }).disposed(by: bag)
     }
+    
+    func loadMore() {
+        guard isLoading.value == false else {
+            return
+        }
+        isLoading.accept(true)
+        API.provider.request(.before(dateString: dateToLoad.value.apiDateString)).retry(3).mapJson()
+            .subscribe(onNext: { (json) in
+                self.isLoading.accept(false)
+                self.dateToLoad.accept(self.dateToLoad.value.dayBefore)
+                if let stories = [Story].deserialize(from: json["stories"].arrayObject) {
+                    let storySection = StorySection(dateString: self.dateToLoad.value.headerString, stories: stories.compactMap {$0})
+                    self.sections.accept(self.sections.value + [storySection])
+                }
+            }, onError: { error in
+                print(error)
+            }).disposed(by: bag)
+    }
+    
+    func prefetchStories() {
+        
+    }
+    
+    func updateStories() {
+        
+    }
+    
+    
 }
 
 extension MoyaProvider {

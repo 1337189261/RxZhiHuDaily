@@ -15,7 +15,6 @@ import SwiftyJSON
 
 class StoryDetailViewModel:NSObject {
     let storyDetail = BehaviorRelay<StoryDetail?>(value: nil)
-    let relay = PublishRelay<Int>()
     
     func fetchStory(no: String) {
         API.provider.request(.detail(no: no)).mapJson()

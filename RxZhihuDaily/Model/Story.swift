@@ -8,6 +8,7 @@
 
 import Foundation
 import HandyJSON
+import RxDataSources
 
 struct Story: HandyJSON {
     var imageHue, title: String?
@@ -15,4 +16,20 @@ struct Story: HandyJSON {
     var hint, gaPrefix: String?
     var images: [String]?
     var type, id: Int?
+}
+
+struct StorySection: SectionModelType {
+    init(original: StorySection, items: [Story]) {
+        self = original
+        self.items = items
+    }
+    
+    init(dateString: String, stories: [Item]) {
+        self.dateString = dateString
+        self.items = stories
+    }
+    
+    typealias Item = Story
+    let dateString: String
+    var items: [Item]
 }

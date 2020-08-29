@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-
+    func setupRouter() {
+        Router.shared.register(aClass: StoryDetailViewController.self, for: "detail")
+    }
+    
 }
-

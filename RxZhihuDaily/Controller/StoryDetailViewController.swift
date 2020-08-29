@@ -6,7 +6,7 @@
 //  Copyright © 2020 陈浩宇. All rights reserved.
 //
 
-import UIKit
+import HYSwift
 import WebKit
 
 final class StoryDetailViewController: UIViewController, Routable {
@@ -30,7 +30,6 @@ final class StoryDetailViewController: UIViewController, Routable {
         }
         
         bind()
-        
     }
     
     func bind() {
