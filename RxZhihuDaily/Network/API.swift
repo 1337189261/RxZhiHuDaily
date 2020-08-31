@@ -16,7 +16,11 @@ enum API {
     case detail(no: String)
     case before(dateString: String)
     
+    #if DEBUG
     static let provider = MoyaProvider<API>(stubClosure: MoyaProvider<API>.immediatelyStub)
+    #else
+    static let provider = MoyaProvider<API>()
+    #endif
 }
 
 extension API: TargetType {

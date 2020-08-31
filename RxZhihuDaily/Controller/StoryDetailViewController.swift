@@ -37,7 +37,7 @@ final class StoryDetailViewController: UIViewController, Routable {
             guard let detail = detail, let strongSelf = self, detail.css?.isEmpty == false, let body = detail.body else {
                 return
             }
-            // 大坑: 这里 api 返回的 css 链接是 http 链接, 需要改为 https, 但由于 css 基本不变, 暂时使用固定的
+            // 坑: 这里 api 返回的 css 链接是 http 链接, 需要改为 https, 但由于 css 基本不变, 暂时使用固定的
             let htmlString = "<html><head><meta name='viewport' content='initial-scale=1.0,user-scalable=no' /><link type='text/css' rel='stylesheet' href = 'https://news-at.zhihu.com/css/news_qa.auto.css?v=97942' ></link></head><body>\(body)</body></html>"
             strongSelf.webView.loadHTMLString(htmlString, baseURL: nil)
         }).disposed(by: bag)

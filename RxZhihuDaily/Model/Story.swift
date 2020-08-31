@@ -9,13 +9,31 @@
 import Foundation
 import HandyJSON
 import RxDataSources
+import WCDBSwift
 
-struct Story: HandyJSON {
-    var imageHue, title: String?
+public struct Story: HandyJSON, TableCodable {
+    
+    var image_hue: String?
+    var title: String?
     var url: String?
-    var hint, gaPrefix: String?
+    var hint: String?
+    // 普通 Story
     var images: [String]?
+    // TopStory
+    var image: String?
     var type, id: Int?
+    
+    var dateNumber: Int?
+    
+    public init() { }
+    
+    public enum CodingKeys: String, CodingTableKey {
+        public typealias Root = Story
+        public static let objectRelationalMapping = TableBinding(CodingKeys.self)
+        case image_hue, title, url, images, image, type, id, dateNumber
+        static var columnConstraintBindings = [id: ColumnConstraintBinding(isPrimary: true, onConflict: .replace)]
+    }
+    
 }
 
 struct StorySection: SectionModelType {

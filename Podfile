@@ -16,5 +16,7 @@ target 'RxZhihuDaily' do
   pod 'RxDataSources'
   pod 'HandyJSON'
   pod 'SwiftyJSON'
+  pod 'WCDB.swift'
+  pod 'ReachabilitySwift'
 
 end

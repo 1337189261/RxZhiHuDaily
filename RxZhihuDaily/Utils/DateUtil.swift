@@ -7,11 +7,19 @@
 //
 import Foundation
 
+fileprivate let formatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyyMMdd"
+    return dateFormatter
+}()
+
 extension Date {
     var apiDateString: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return formatter.string(from: self)
+        formatter.string(from: self)
+    }
+    
+    var numberFormat: Int? {
+        Int(apiDateString)
     }
     
     var headerString: String {
@@ -36,5 +44,9 @@ extension Date {
     }
     var isLastDayOfMonth: Bool {
         return dayAfter.month != month
+    }
+    
+    static func from(dateString: String) -> Date {
+        formatter.date(from: dateString) ??  Date()
     }
 }

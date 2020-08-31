@@ -16,11 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupInitial(window: &window, rootViewController: HomeViewController(params: [:]), withNavigation: true)
+        setupRouter()
         return true
     }
     
     func setupRouter() {
-        Router.shared.register(aClass: StoryDetailViewController.self, for: "detail")
+        for pairs in routerMap {
+            Router.shared.register(type: pairs.1, for: pairs.0)
+        }
     }
+    
+    let routerMap: [(String, Routable.Type)] = [("detail", StoryDetailViewController.self)]
     
 }

@@ -13,9 +13,9 @@ class Router {
     
     static let shared = Router()
     private init() {}
-    private var dynamicPages = [String: String]()
-    func register(aClass:Routable.Type, for schema: String) {
-        dynamicPages[schema] = NSStringFromClass(aClass)
+    private var dynamicPages = [String: Routable.Type]()
+    func register(type:Routable.Type, for schema: String) {
+        dynamicPages[schema] = type
     }
     
     enum DisplayStyle {
@@ -23,11 +23,10 @@ class Router {
     }
     
     func open(url: URL?, params:[String: Any], displayStyle: DisplayStyle = .push) {
-        guard let scheme = url?.scheme, let vcClass = dynamicPages[scheme] else {
+        guard let scheme = url?.scheme, let type = dynamicPages[scheme] else {
             return
         }
-        let routableClass = NSClassFromString(vcClass) as! Routable.Type
-        let vc = routableClass.init(params: params)
+        let vc = type.init(params: params)
         switch displayStyle {
         case .present:
             UIViewController.topController()?.present(vc, animated: true, completion: nil)
